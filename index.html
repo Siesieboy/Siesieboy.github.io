@@ -1,546 +1,547 @@
 <!DOCTYPE html>
 <html lang="nl">
-  <head>
-    <!-- Favicons - Plak dit in de <head>
-      van je HTML -->
-    <!-- Standard favicons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="https://i.ibb.co/Gfn6HCNS/favicon-16x16-png.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/vybBVwC/favicon-32x32-png.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="https://i.ibb.co/hRkLW9NK/favicon-48x48-png.png">
-    <!-- Apple Touch Icon (iOS) -->
-    <link rel="apple-touch-icon" sizes="180x180" href="https://i.ibb.co/p6mMXVh2/apple-touch-icon-png.png">
-    <!-- Android Chrome -->
-    <link rel="icon" type="image/png" sizes="192x192" href="https://i.ibb.co/0Rmpn7Vg/android-chrome-192x192-png.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="https://i.ibb.co/zhG9XTTF/android-chrome-512x512-png.png">
-    <!-- Standaard fallback -->
-    <link rel="shortcut icon" href="https://i.ibb.co/vybBVwC/favicon-32x32-png.png">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Siesieboy/Siesieboy.github.io/refs/heads/main/FaviconSiesieboy.png">
-    <title> Siesieboy</title>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+<head>
 
-      body {
-        margin: 0;
-        font-family: 'Inter', sans-serif;
-        background: linear-gradient(135deg, #eef1f5, #dfe6ee);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        padding: 40px 20px;
-        box-sizing: border-box;
-      }
+  <!-- Favicons - Plak dit in de <head> van je HTML -->
 
-      .container {
-        width: 100%;
-        max-width: 1100px;
-        padding: 50px 30px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background: rgba(255, 255, 255, 0.75);
-        backdrop-filter: blur(20px);
-        border-radius: 28px;
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-        text-align: center;
-        box-sizing: border-box;
-        position: relative;
-      }
+  <!-- Standard favicons -->
+  <link rel="icon" type="image/png" sizes="16x16" href="https://i.ibb.co/Gfn6HCNS/favicon-16x16-png.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/vybBVwC/favicon-32x32-png.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="https://i.ibb.co/hRkLW9NK/favicon-48x48-png.png">
 
-      /* --- TAAL TOGGLE --- */
-      .lang-toggle {
-        position: absolute;
-        top: 22px;
-        right: 22px;
-        display: flex;
-        gap: 6px;
-        padding: 6px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.7);
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-        backdrop-filter: blur(10px);
-      }
+  <!-- Apple Touch Icon (iOS) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="https://i.ibb.co/p6mMXVh2/apple-touch-icon-png.png">
 
-      .lang-toggle button {
-        border: 0;
-        background: transparent;
-        padding: 6px 12px;
-        border-radius: 999px;
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: #6b7280;
-        cursor: pointer;
-        transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-      }
+  <!-- Android Chrome -->
+  <link rel="icon" type="image/png" sizes="192x192" href="https://i.ibb.co/0Rmpn7Vg/android-chrome-192x192-png.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="https://i.ibb.co/zhG9XTTF/android-chrome-512x512-png.png">
 
-      .lang-toggle button.active {
-        background: rgba(254, 131, 37, 0.8);
-        color: #ffffff;
-        box-shadow: 0 0 10px 3px rgba(244, 141, 32, 0.35);
-      }
+  <!-- Standaard fallback -->
+  <link rel="shortcut icon" href="https://i.ibb.co/vybBVwC/favicon-32x32-png.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Siesieboy/Siesieboy.github.io/refs/heads/main/FaviconSiesieboy.png">
+<title>Siesieboy</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-      /* --- PROFILE PIC ANIMATIE INSTELLINGEN --- */
-      .profile-pic {
-        /* PAS HIER DE ANIMATIE AAN: */
-        --anim-duur: 1.2s;
-        /* Hoe lang duurt het (bijv. 0.5s of 2s) */
-        --anim-afstand: -40px;
-        /* Hoe ver komt hij van boven? */
-        --anim-schaal: 0.6;
-        /* Hoe klein begint de foto (0.1 is heel klein, 1.0 is direct groot) */
-        width: 95px;
-        height: 100px;
-        border-radius: 50%;
-        border: 2px solid rgba(0, 0, 0, 0.1);
-        margin-bottom: 20px;
-        /* Beginstatus */
-        opacity: 0;
-        transform: translateY(var(--anim-afstand)) scale(var(--anim-schaal));
-        /* De transitie met een 'bounce' effect (cubic-bezier) */
-        transition:
-          opacity var(--anim-duur) ease-out,
-          transform var(--anim-duur) cubic-bezier(0.34, 1.56, 0.64, 1);
-      }
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #eef1f5, #dfe6ee);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  box-sizing: border-box; 
+}
 
-      /* Eindstatus als hij geladen is */
-      .profile-pic.loaded {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+.container {
+  width: 100%;
+  max-width: 1100px;
+  padding: 50px 30px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  border-radius: 28px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.6);
+  text-align: center;
+  box-sizing: border-box; 
+  position: relative;
+}
 
-      /* --- REST VAN DE STYLING (ONGEWIJZIGD) --- */
-      h1 {
-        font-size: 2.2rem;
-        margin-bottom: 10px;
-        color: #111827;
-        font-weight: 700;
-      }
+/* --- TAAL TOGGLE --- */
+.lang-toggle {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  backdrop-filter: blur(10px);
+}
 
-      .subtitle {
-        margin-bottom: 40px;
-        font-size: 1.05rem;
-        color: #6b7280;
-        font-weight: 500;
-        letter-spacing: 0.2px;
-        text-align: center;
-      }
+.lang-toggle button {
+  border: 0;
+  background: transparent;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
 
-      .links {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        width: 100%;
-      }
+.lang-toggle button.active {
+  background: rgba(254, 131, 37, 0.8);
+  color: #ffffff;
+  box-shadow: 0 0 10px 3px rgba(244, 141, 32, 0.35);
+}
 
-      .link-item {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-        width: 100%;
-      }
+/* --- PROFILE PIC ANIMATIE INSTELLINGEN --- */
+.profile-pic {
+  /* PAS HIER DE ANIMATIE AAN: */
+  --anim-duur: 1.2s;        /* Hoe lang duurt het (bijv. 0.5s of 2s) */
+  --anim-afstand: -40px;    /* Hoe ver komt hij van boven? */
+  --anim-schaal: 0.6;       /* Hoe klein begint de foto (0.1 is heel klein, 1.0 is direct groot) */
+  
+  width: 95px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  
+  /* Beginstatus */
+  opacity: 0;
+  transform: translateY(var(--anim-afstand)) scale(var(--anim-schaal));
+  
+  /* De transitie met een 'bounce' effect (cubic-bezier) */
+  transition: 
+    opacity var(--anim-duur) ease-out, 
+    transform var(--anim-duur) cubic-bezier(0.34, 1.56, 0.64, 1);
+}
 
-      .link-item.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
+/* Eindstatus als hij geladen is */
+.profile-pic.loaded {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
 
-      .link-inner {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        padding: 20px;
-        background: rgba(255, 255, 255, 0.85);
-        border-radius: 20px;
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-        height: 100%;
-        box-sizing: border-box;
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
-      }
+/* --- REST VAN DE STYLING (ONGEWIJZIGD) --- */
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: #111827;
+  font-weight: 700;
+}
 
-      .link-item:hover .link-inner {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), 0 0 12px 4px rgba(255, 119, 0, 0.4);
-      }
+.subtitle {
+  margin-bottom: 40px;
+  font-size: 1.05rem;
+  color: #6b7280;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  text-align: center;
+}
 
-      .link-logo {
-        width: 50px;
-        height: 50px;
-        border-radius: 12px;
-        object-fit: cover;
-        flex-shrink: 0;
-      }
+.links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 20px; 
+  width: 100%;
+}
 
-      .link-main {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        gap: 10px;
-      }
+.link-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  width: 100%;
+}
 
-      .link-text {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        text-align: left;
-        flex-grow: 1;
-      }
+.link-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-      .link-text h3 {
-        margin: 0;
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: #111827;
-      }
+.link-inner {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  height: 100%; 
+  box-sizing: border-box;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
 
-      .link-text p {
-        margin: 0;
-        font-size: 0.85rem;
-        color: #6b7280;
-      }
+.link-item:hover .link-inner {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12), 0 0 12px 4px rgba(255, 119, 0, 0.4);
+}
 
-      .visit-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
+.link-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
 
-      .badge {
-        color: white;
-        font-size: 0.7rem;
-        font-weight: 600;
-        padding: 2px 6px;
-        border-radius: 6px;
-        white-space: nowrap;
-      }
+.link-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
 
-      .badge-oranje {
-        background: #ff9800;
-      }
+.link-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+  flex-grow: 1;
+}
 
-      .badge-blauw {
-        background: #3b82f6;
-      }
+.link-text h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827;
+}
 
-      .badge-groen {
-        background: #22c55e;
-      }
+.link-text p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
 
-      .badge-rood {
-        background: #ef4444;
-      }
+.visit-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+}
 
-      .badge-paars {
-        background: #a855f7;
-      }
+.badge {
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
 
-      .badge-geel {
-        background: #eab308;
-      }
+.badge-oranje { background: #ff9800; }
+.badge-blauw  { background: #3b82f6; }
+.badge-groen  { background: #22c55e; }
+.badge-rood   { background: #ef4444; }
+.badge-paars  { background: #a855f7; }
+.badge-geel   { background: #eab308; }
 
-      .visit-button {
-        padding: 8px 14px;
-        border-radius: 999px;
-        background: rgba(254, 131, 37, 0.7);
-        color: white;
-        text-decoration: none;
-        font-size: 0.85rem;
-        font-weight: 600;
-        white-space: nowrap;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-      }
+.visit-button {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(254, 131, 37, 0.7);
+  color: white;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
 
-      .visit-button:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 10px 3px rgba(244, 141, 32, 0.6);
-        background: #fa831b;
-      }
+.visit-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px 3px rgba(244, 141, 32, 0.6);
+  background: #fa831b;
+}
 
-      @media (max-width: 900px) {
-        .links {
-          grid-template-columns: 1fr;
-        }
-      }
+@media (max-width: 900px) {
+  .links {
+    grid-template-columns: 1fr;
+  }
+}
 
-      @media (max-width: 600px) {
-        .link-inner {
-          flex-direction: column;
-          text-align: center;
-        }
+@media (max-width: 600px) {
+  .link-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .link-main {
+    flex-direction: column;
+  }
+  .link-text {
+    text-align: center;
+  }
+  .visit-wrapper {
+    justify-content: center;
+  }
+  .lang-toggle {
+    top: 16px;
+    right: 16px;
+  }
+}
 
-        .link-main {
-          flex-direction: column;
-        }
+footer {
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+</style>
+</head>
+<body>
 
-        .link-text {
-          text-align: center;
-        }
+<div class="container">
+  <div class="lang-toggle" aria-label="Language toggle">
+    <button type="button" data-lang="nl" class="active">NL</button>
+    <button type="button" data-lang="en">EN</button>
+  </div>
 
-        .visit-wrapper {
-          justify-content: center;
-        }
+  <img class="profile-pic" src="https://raw.githubusercontent.com/Siesieboy/Siesieboy.github.io/refs/heads/main/LogoSiesieboy.png">
+  
+  <h1>Siesieboy</h1>
+  <p class="subtitle" data-i18n="subtitle">Al mijn websites, makkelijker terug te vinden!</p>
 
-        .lang-toggle {
-          top: 16px;
-          right: 16px;
-        }
-      }
-
-      footer {
-        margin-top: 40px;
-        font-size: 0.9rem;
-        color: #6b7280;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="lang-toggle" aria-label="Language toggle">
-        <button type="button" data-lang="nl" class="active"> NL</button>
-        <button type="button" data-lang="en"> EN</button>
-      </div>
-      <img class="profile-pic" src="https://raw.githubusercontent.com/Siesieboy/Siesieboy.github.io/refs/heads/main/LogoSiesieboy.png">
-      <h1> Siesieboy</h1>
-      <p class="subtitle" data-i18n="subtitle"> Al mijn websites, makkelijker terug te vinden!</p>
-      <div class="links">
-        <div class="link-item">
-          <div class="link-inner">
-            <img src="logoitalianoradboud.png" class="link-logo">
-            <div class="link-main">
-              <div class="link-text">
-                <h3> Italiano Radboud 🍝</h3>
-                <p data-i18n="italiano_desc"> Italiaans afhaalrestaurant</p>
-              </div>
-              <div class="visit-wrapper">
-                <div class="badge badge-geel" data-i18n="badge_favorite"> Favoriet</div>
-                <a href="https://italianoradboud.nl" target="_blank" rel="noopener noreferrer" class="visit-button" data-i18n="visit_button"> Bezoek</a>
-              </div>
-            </div>
+  <div class="links">
+    <div class="link-item">
+      <div class="link-inner">
+        <img src="logoitalianoradboud.png" class="link-logo">
+        <div class="link-main">
+          <div class="link-text">
+            <h3>Italiano Radboud 🍝</h3>
+            <p data-i18n="italiano_desc">Italiaans afhaalrestaurant</p>
           </div>
-        </div>
-        <div class="link-item">
-          <div class="link-inner">
-            <img src="studiekeuzelogo.png" class="link-logo">
-            <div class="link-main">
-              <div class="link-text">
-                <h3> Studiekeuze 📚</h3>
-                <p data-i18n="studiekeuze_desc"> Hulp bij het kiezen van een studie</p>
-              </div>
-              <div class="visit-wrapper">
-                <div class="badge badge-blauw" data-i18n="badge_info"> Info</div>
-                <a href="https://siesieboy.github.io/Studiekeuze/" target="_blank" rel="noopener noreferrer" class="visit-button" data-i18n="visit_button"> Bezoek</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="link-item">
-          <div class="link-inner">
-            <img src="logoSchoolSquare.png" class="link-logo">
-            <div class="link-main">
-              <div class="link-text">
-                <h3> SchoolSquare 💻</h3>
-                <p data-i18n="schoolsquare_desc"> Beheer je toetsen en schoolwerk</p>
-              </div>
-              <div class="visit-wrapper">
-                <div class="badge badge-paars" data-i18n="badge_tools"> Tools</div>
-                <a href="https://siesieboy.github.io/SchoolSquare/" target="_blank" rel="noopener noreferrer" class="visit-button" data-i18n="visit_button"> Bezoek</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="link-item">
-          <div class="link-inner">
-            <img src="logoaquaeclipse.png" class="link-logo">
-            <div class="link-main">
-              <div class="link-text">
-                <h3> Aqua Eclipse 🌊</h3>
-                <p data-i18n="aqua_desc"> Voor al uw prachtige reizen!</p>
-              </div>
-              <div class="visit-wrapper">
-                <div class="badge badge-oranje" data-i18n="badge_travel"> Reizen</div>
-                <a href="https://siesieboy.github.io/aquaeclipse/" target="_blank" rel="noopener noreferrer" class="visit-button" data-i18n="visit_button"> Bezoek</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="link-item">
-          <div class="link-inner">
-            <img src="WhatFoodLogo.png" class="link-logo">
-            <div class="link-main">
-              <div class="link-text">
-                <h3> What Food?</h3>
-                <p data-i18n="whatfood_desc"> Keuze stress voor avondeten? Dit is dé oplossing!</p>
-              </div>
-              <div class="visit-wrapper">
-                <div class="badge badge-groen" data-i18n="badge_food"> Eten</div>
-                <a href="https://siesieboy.github.io/WhatFood/" target="_blank" rel="noopener noreferrer" class="visit-button" data-i18n="visit_button"> Bezoek</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="link-item">
-          <div class="link-inner">
-            <img src="https://raw.githubusercontent.com/Tomask4/tomask4.github.io/refs/heads/main/Logo.png" class="link-logo">
-            <div class="link-main">
-              <div class="link-text">
-                <h3> Tomask4</h3>
-                <p data-i18n="tomask4_desc"> Link naar de website van Tomask4</p>
-              </div>
-              <div class="visit-wrapper">
-                <div class="badge badge-rood" data-i18n="badge_friend"> Friend</div>
-                <a href="https://tomask4.github.io/" target="_blank" rel="noopener noreferrer" class="visit-button" data-i18n="visit_button"> Bezoek</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="link-item">
-          <div class="link-inner">
-            <img src="ConcertTracker.png" class="link-logo">
-            <div class="link-main">
-              <div class="link-text">
-                <h3> ConcertTracker</h3>
-                <p data-i18n="ConcertTracker_desc"> Voeg je favorieten artiesten toe en track hun concerten!</p>
-              </div>
-              <div class="visit-wrapper">
-                <div class="badge badge-blauw" data-i18n="badge_info"> Info</div>
-                <a href="https://siesieboy.github.io/ConcertTracker/" target="_blank" rel="noopener noreferrer" class="visit-button" data-i18n="visit_button"> Bezoek</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="link-item">
-          <div class="link-inner">
-            <img src="101wereldgrechtenlogo.png" class="link-logo">
-            <div class="link-main">
-              <div class="link-text">
-                <h3> 101 Wereldgerechten</h3>
-                <p data-i18n="Wereldgrechten_desc"> Een collectie van wereldgerechten en recepten die jij kunt maken!</p>
-              </div>
-              <div class="visit-wrapper">
-                <div class="badge badge-groen" data-i18n="badge_food"> Eten</div>
-                <a href="https://siesieboy.github.io/101WereldGerechten/" target="_blank" rel="noopener noreferrer" class="visit-button" data-i18n="visit_button"> Bezoek</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="link-item">
-          <div class="link-inner">
-            <img src="CV maker.png" class="link-logo">
-            <div class="link-main">
-              <div class="link-text">
-                <h3> CV maker</h3>
-                <p data-i18n="CVmaker_desc"> Maak eenvoudig een CV en portfolio met behulp van deze tool!</p>
-              </div>
-              <div class="visit-wrapper">
-                <div class="badge badge-paars" data-i18n="badge_tools"> Tools</div>
-                <a href="https://siesieboy.github.io/CVmaker/" target="_blank" rel="noopener noreferrer" class="visit-button" data-i18n="visit_button"> Bezoek</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="link-item">
-          <div class="link-inner">
-            <img src="CookingTechnicslogo.png" class="link-logo">
-            <div class="link-main">
-              <div class="link-text">
-                <h3> Cooking Technics</h3>
-                <p data-i18n="CookingTechnics_desc"> Nog steeds slecht in koken? Dit zal je helpen!</p>
-              </div>
-              <div class="visit-wrapper">
-                <div class="badge badge-blauw" data-i18n="badge_info"> Info</div>
-                <a href="https://siesieboy.github.io/CookingTechnics/" target="_blank" rel="noopener noreferrer" class="visit-button" data-i18n="visit_button"> Bezoek</a>
-              </div>
-            </div>
+          <div class="visit-wrapper">
+            <div class="badge badge-geel" data-i18n="badge_favorite">Favoriet</div>
+            <a href="https://italianoradboud.nl" target="_blank" rel="noopener noreferrer" class="visit-button" data-i18n="visit_button">Bezoek</a>
           </div>
         </div>
       </div>
-      <footer>
-        <span data-i18n="footer"> &copy; 2026 Siesieboy. Alle rechten voorbehouden.</span>
-      </footer>
     </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const translations = {
-          nl: {
-            subtitle: "Al mijn websites, makkelijker terug te vinden!",
-            italiano_desc: "Italiaans afhaalrestaurant",
-            studiekeuze_desc: "Hulp bij het kiezen van een studie",
-            schoolsquare_desc: "Beheer je toetsen en schoolwerk",
-            aqua_desc: "Voor al uw prachtige reizen!",
-            whatfood_desc: "Keuze stress voor avondeten? Dit is dé oplossing!",
-            tomask4_desc: "Link naar de website van Tomask4",
-            CheckJeUitgaven_desc: "Eenvoudig en overzichtelijk je uitgaven en inkomsten bijhouden!",
-            ConcertTracker_desc: "Voeg je favoriete artiesten toe en track hun concerten!",
-            Wereldgrechten_desc: "Een collectie van wereldgerechten en recepten die jij kunt maken!",
-            MyStorage_desc: "Hou eenvoudig bij wat je in je keuken hebt!",
-            CVmaker_desc: "Maak eenvoudig een CV en portfolio met behulp van deze tool!",
-            CookingTechnics_desc: "Nog steeds slecht in koken? Dit zal je helpen!",
-            badge_favorite: "Favoriet",
-            badge_info: "Info",
-            badge_tools: "Tools",
-            badge_travel: "Reizen",
-            badge_friend: "Vriend",
-            badge_food: "Eten",
-            visit_button: "Bezoek",
-            footer: "© 2026 Siesieboy. Alle rechten voorbehouden."
-          },
-          en: {
-            subtitle: "All my websites, easier to find!",
-            italiano_desc: "Italian takeaway restaurant",
-            studiekeuze_desc: "Help choosing a study",
-            schoolsquare_desc: "Manage your tests and schoolwork",
-            aqua_desc: "For all your beautiful trips!",
-            whatfood_desc: "Dinner decision stress? This is the solution!",
-            tomask4_desc: "Link to Tomask4's website",
-            CheckJeUitgaven_desc: "Easily and clearly keep track of your expenses and income!",
-            ConcertTracker_desc: "Add your favorite artists and track their concerts!",
-            Wereldgrechten_desc: "A collection of world dishes and recipes you can make!",
-            MyStorage_desc: "Easily keep track of what you have in your kitchen!",
-            CVmaker_desc: "Easily create a CV and portfolio with this tool!",
-            CookingTechnics_desc: "Still suck at cooking? This will help you!",
-            badge_favorite: "Favorite",
-            badge_info: "Info",
-            badge_tools: "Tools",
-            badge_travel: "Travel",
-            badge_friend: "Friend",
-            badge_food: "Food",
-            visit_button: "Visit",
-            footer: "© 2026 Siesieboy. All rights reserved."
-          }
-        };
-        const setLanguage = (lang) => {
-          const dict = translations[lang] || translations.nl;
-          document.documentElement.lang = lang;
-          document.querySelectorAll("[data-i18n]").forEach((el) => {
-            const key = el.getAttribute("data-i18n");
-            if (dict[key]) {
-              el.textContent = dict[key];
-            }
-          });
-          document.querySelectorAll(".lang-toggle button").forEach((btn) => {
-            btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
-          });
-          localStorage.setItem("lang", lang);
-        };
-        // Start de foto-animatie
-        setTimeout(() => {
-          document.querySelector('.profile-pic').classList.add('loaded');
-        }, 200);
-        // De stones komen een voor een binnen
-        const items = document.querySelectorAll('.link-item');
-        items.forEach((item, index) => {
-          setTimeout(() => {
-            item.classList.add('visible');
-          }, 600 + (index * 200));
-        });
-        document.querySelectorAll(".lang-toggle button").forEach((btn) => {
-          btn.addEventListener("click", () => setLanguage(btn.getAttribute("data-lang")));
-        });
-        const storedLang = localStorage.getItem("lang");
-        setLanguage(storedLang && translations[storedLang] ? storedLang : "nl");
-      });
-    </script>
-  </body>
+
+    <div class="link-item">
+      <div class="link-inner">
+        <img src="studiekeuzelogo.png" class="link-logo">
+        <div class="link-main">
+          <div class="link-text">
+            <h3>Studiekeuze 📚</h3>
+            <p data-i18n="studiekeuze_desc">Hulp bij het kiezen van een studie</p>
+          </div>
+          <div class="visit-wrapper">
+            <div class="badge badge-blauw" data-i18n="badge_info">Info</div>
+            <a href="https://siesieboy.github.io/Studiekeuze/" target="_blank" rel="noopener noreferrer" class="visit-button" data-i18n="visit_button">Bezoek</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="link-item">
+      <div class="link-inner">
+        <img src="logoSchoolSquare.png" class="link-logo">
+        <div class="link-main">
+          <div class="link-text">
+            <h3>SchoolSquare 💻</h3>
+            <p data-i18n="schoolsquare_desc">Beheer je toetsen en schoolwerk</p>
+          </div>
+          <div class="visit-wrapper">
+            <div class="badge badge-paars" data-i18n="badge_tools">Tools</div>
+            <a href="https://siesieboy.github.io/SchoolSquare/" target="_blank" rel="noopener noreferrer" class="visit-button" data-i18n="visit_button">Bezoek</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="link-item">
+      <div class="link-inner">
+        <img src="logoaquaeclipse.png" class="link-logo">
+        <div class="link-main">
+          <div class="link-text">
+            <h3>Aqua Eclipse 🌊</h3>
+            <p data-i18n="aqua_desc">Voor al uw prachtige reizen!</p>
+          </div>
+          <div class="visit-wrapper">
+            <div class="badge badge-oranje" data-i18n="badge_travel">Reizen</div>
+            <a href="https://siesieboy.github.io/aquaeclipse/" target="_blank" rel="noopener noreferrer" class="visit-button" data-i18n="visit_button">Bezoek</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="link-item">
+      <div class="link-inner">
+        <img src="WhatFoodLogo.png" class="link-logo">
+        <div class="link-main">
+          <div class="link-text">
+            <h3>What Food?</h3>
+            <p data-i18n="whatfood_desc">Keuze stress voor avondeten? Dit is dé oplossing!</p>
+          </div>
+          <div class="visit-wrapper">
+            <div class="badge badge-groen" data-i18n="badge_food">Eten</div>
+            <a href="https://siesieboy.github.io/WhatFood/" target="_blank" rel="noopener noreferrer" class="visit-button" data-i18n="visit_button">Bezoek</a>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="link-item">
+      <div class="link-inner">
+        <img src="https://raw.githubusercontent.com/Tomask4/tomask4.github.io/refs/heads/main/Logo.png" class="link-logo">
+        <div class="link-main">
+          <div class="link-text">
+            <h3>Tomask4</h3>
+            <p data-i18n="tomask4_desc">Link naar de website van Tomask4</p>
+          </div>
+          <div class="visit-wrapper">
+            <div class="badge badge-rood" data-i18n="badge_friend">Friend</div>
+            <a href="https://tomask4.github.io/" target="_blank" rel="noopener noreferrer" class="visit-button" data-i18n="visit_button">Bezoek</a>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="link-item">
+      <div class="link-inner">
+        <img src="ConcertTracker.png" class="link-logo">
+        <div class="link-main">
+          <div class="link-text">
+            <h3>ConcertTracker</h3>
+            <p data-i18n="ConcertTracker_desc">Voeg je favorieten artiesten toe en track hun concerten!</p>
+          </div>
+          <div class="visit-wrapper">
+            <div class="badge badge-blauw" data-i18n="badge_info">Info</div>
+            <a href="https://siesieboy.github.io/ConcertTracker/" target="_blank" rel="noopener noreferrer" class="visit-button" data-i18n="visit_button">Bezoek</a>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="link-item">
+      <div class="link-inner">
+        <img src="101wereldgrechtenlogo.png" class="link-logo">
+        <div class="link-main">
+          <div class="link-text">
+            <h3>101 Wereldgerechten</h3>
+            <p data-i18n="Wereldgrechten_desc">Een collectie van wereldgerechten en recepten die jij kunt maken!</p>
+          </div>
+          <div class="visit-wrapper">
+            <div class="badge badge-groen" data-i18n="badge_food">Eten</div>
+            <a href="https://siesieboy.github.io/101WereldGerechten/" target="_blank" rel="noopener noreferrer" class="visit-button" data-i18n="visit_button">Bezoek</a>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="link-item">
+      <div class="link-inner">
+        <img src="CV maker.png" class="link-logo">
+        <div class="link-main">
+          <div class="link-text">
+            <h3>CV maker</h3>
+            <p data-i18n="CVmaker_desc">Maak eenvoudig een CV en portfolio met behulp van deze tool!</p>
+          </div>
+          <div class="visit-wrapper">
+            <div class="badge badge-paars" data-i18n="badge_tools">Tools</div>
+            <a href="https://siesieboy.github.io/CVmaker/" target="_blank" rel="noopener noreferrer" class="visit-button" data-i18n="visit_button">Bezoek</a>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="link-item">
+      <div class="link-inner">
+        <img src="CookingTechnicslogo.png" class="link-logo">
+        <div class="link-main">
+          <div class="link-text">
+            <h3>Cooking Techniques</h3>
+            <p data-i18n="CookingTechnics_desc">Leer de basis van koken met deze handige tool!</p>
+          </div>
+          <div class="visit-wrapper">
+            <div class="badge badge-paars" data-i18n="badge_tools">Tools</div>
+            <a href="https://siesieboy.github.io/CookingTechnics/" target="_blank" rel="noopener noreferrer" class="visit-button" data-i18n="visit_button">Bezoek</a>
+          </div>
+        </div>
+    </div>
+  </div>  
+</div> 
+<footer>
+  <span data-i18n="footer">&copy; 2026 Siesieboy. Alle rechten voorbehouden.</span>
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const translations = {
+    nl: {
+      subtitle: "Al mijn websites, makkelijker terug te vinden!",
+      italiano_desc: "Italiaans afhaalrestaurant",
+      studiekeuze_desc: "Hulp bij het kiezen van een studie",
+      schoolsquare_desc: "Beheer je toetsen en schoolwerk",
+      aqua_desc: "Voor al uw prachtige reizen!",
+      whatfood_desc: "Keuze stress voor avondeten? Dit is dé oplossing!",
+      tomask4_desc: "Link naar de website van Tomask4",
+      CheckJeUitgaven_desc: "Eenvoudig en overzichtelijk je uitgaven en inkomsten bijhouden!",
+      ConcertTracker_desc: "Voeg je favoriete artiesten toe en track hun concerten!",
+      Wereldgrechten_desc: "Een collectie van wereldgerechten en recepten die jij kunt maken!",
+      MyStorage_desc: "Hou eenvoudig bij wat je in je keuken hebt!",
+      CVmaker_desc: "Maak eenvoudig een CV en portfolio met behulp van deze tool!",
+      CookingTechnics_desc: "Leer de basis van koken met deze handige tool!",
+      badge_favorite: "Favoriet",
+      badge_info: "Info",
+      badge_tools: "Tools",
+      badge_travel: "Reizen",
+      badge_friend: "Vriend",
+      badge_food: "Eten",
+      visit_button: "Bezoek",
+      footer: "© 2026 Siesieboy. Alle rechten voorbehouden."
+    },
+    en: {
+      subtitle: "All my websites, easier to find!",
+      italiano_desc: "Italian takeaway restaurant",
+      studiekeuze_desc: "Help choosing a study",
+      schoolsquare_desc: "Manage your tests and schoolwork",
+      aqua_desc: "For all your beautiful trips!",
+      whatfood_desc: "Dinner decision stress? This is the solution!",
+      tomask4_desc: "Link to Tomask4's website",
+      CheckJeUitgaven_desc: "Easily and clearly keep track of your expenses and income!",
+      ConcertTracker_desc: "Add your favorite artists and track their concerts!",
+      Wereldgrechten_desc: "A collection of world dishes and recipes you can make!",
+      MyStorage_desc: "Easily keep track of what you have in your kitchen!",
+      CVmaker_desc: "Easily create a CV and portfolio with this tool!",
+      CookingTechnics_desc: "Learn the basics of cooking with this handy tool!",
+      badge_favorite: "Favorite",
+      badge_info: "Info",
+      badge_tools: "Tools",
+      badge_travel: "Travel",
+      badge_friend: "Friend",
+      badge_food: "Food",
+      visit_button: "Visit",
+      footer: "© 2026 Siesieboy. All rights reserved."
+    }
+  };
+
+  const setLanguage = (lang) => {
+    const dict = translations[lang] || translations.nl;
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      if (dict[key]) {
+        el.textContent = dict[key];
+      }
+    });
+    document.querySelectorAll(".lang-toggle button").forEach((btn) => {
+      btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+    });
+    localStorage.setItem("lang", lang);
+  };
+
+  // Start de foto-animatie
+  setTimeout(() => {
+    document.querySelector('.profile-pic').classList.add('loaded');
+  }, 200);
+
+  // De stones komen een voor een binnen
+  const items = document.querySelectorAll('.link-item');
+  items.forEach((item, index) => {
+    setTimeout(() => {
+      item.classList.add('visible');
+    }, 600 + (index * 200)); 
+  });
+
+  document.querySelectorAll(".lang-toggle button").forEach((btn) => {
+    btn.addEventListener("click", () => setLanguage(btn.getAttribute("data-lang")));
+  });
+
+  const storedLang = localStorage.getItem("lang");
+  setLanguage(storedLang && translations[storedLang] ? storedLang : "nl");
+});
+</script>
+
+</body>
 </html>
